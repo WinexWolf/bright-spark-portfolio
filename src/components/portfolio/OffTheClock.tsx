@@ -1,9 +1,9 @@
 const PINS = [
-  { id: "del", name: "Delhi", x: 68, y: 46, eat: "Karim's · kebabs" },
-  { id: "lon", name: "London", x: 45, y: 28, eat: "Dishoom · bacon naan" },
-  { id: "nyc", name: "New York", x: 24, y: 36, eat: "Superiority Burger" },
-  { id: "tok", name: "Tokyo", x: 85, y: 40, eat: "Fuglen · coffee" },
-  { id: "lis", name: "Lisbon", x: 40, y: 40, eat: "Time Out Market" },
+  { id: "del", name: "Delhi", x: 60, y: 44, eat: "Karim's · kebabs" },
+  { id: "lon", name: "London", x: 34, y: 20, eat: "Dishoom · bacon naan" },
+  { id: "nyc", name: "New York", x: 10, y: 30, eat: "Superiority Burger" },
+  { id: "tok", name: "Tokyo", x: 80, y: 26, eat: "Fuglen · coffee" },
+  { id: "lis", name: "Lisbon", x: 24, y: 48, eat: "Time Out Market" },
 ];
 
 const ROUTES = [
