@@ -34,8 +34,12 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-citrus: var(--citrus);
   --color-mint: var(--mint);
+  --color-grape: var(--grape);
+  --color-sky: var(--sky);
+  --color-blush: var(--blush);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -64,6 +68,9 @@
   --accent-foreground: oklch(0.26 0.05 200);
   --citrus: oklch(0.88 0.16 95);
   --mint: oklch(0.88 0.09 165);
+  --grape: oklch(0.68 0.17 305);
+  --sky: oklch(0.72 0.14 235);
+  --blush: oklch(0.8 0.13 355);
   --ink: oklch(0.24 0.03 55);
   --ink-foreground: oklch(0.98 0.012 85);
   --destructive: oklch(0.577 0.245 27.325);
@@ -78,9 +85,24 @@
     oklch(0.95 0.09 95) 50%,
     oklch(0.94 0.05 180) 100%
   );
+  --gradient-vivid: linear-gradient(
+    110deg,
+    var(--primary) 0%,
+    var(--blush) 30%,
+    var(--grape) 55%,
+    var(--sky) 78%,
+    var(--mint) 100%
+  );
+  --gradient-mesh:
+    radial-gradient(40% 55% at 12% 18%, oklch(0.88 0.15 30 / 0.55) 0%, transparent 70%),
+    radial-gradient(45% 50% at 88% 12%, oklch(0.9 0.14 95 / 0.6) 0%, transparent 70%),
+    radial-gradient(50% 55% at 78% 88%, oklch(0.86 0.11 235 / 0.5) 0%, transparent 70%),
+    radial-gradient(45% 50% at 18% 85%, oklch(0.86 0.11 165 / 0.5) 0%, transparent 70%);
   --shadow-lift: 0 24px 60px -28px oklch(0.4 0.09 40 / 0.4);
   --shadow-soft: 0 10px 30px -18px oklch(0.4 0.06 50 / 0.45);
+  --shadow-glow: 0 30px 80px -30px oklch(0.64 0.19 32 / 0.55);
 }
+
 
 @layer base {
   * {
