@@ -16,12 +16,13 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
           setShown(true);
           io.disconnect();
         }
       },
+
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
     io.observe(el);
