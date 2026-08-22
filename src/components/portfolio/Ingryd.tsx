@@ -19,7 +19,7 @@ export function Ingryd() {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 bottom--10 size-96 animate-blob rounded-full bg-grape/40 opacity-40 blur-3xl [animation-delay:-8s]"
+          className="pointer-events-none absolute -right-24 -bottom-10 size-96 animate-blob rounded-full bg-grape/40 opacity-40 blur-3xl [animation-delay:-8s]"
         />
         <div
           aria-hidden
