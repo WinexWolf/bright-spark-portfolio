@@ -37,8 +37,13 @@
   --color-grape: var(--grape);
   --color-sky: var(--sky);
   --color-blush: var(--blush);
+  --color-matcha: var(--matcha);
+  --color-matcha-deep: var(--matcha-deep);
+  --color-strawberry: var(--strawberry);
+  --color-strawberry-deep: var(--strawberry-deep);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
+
 
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -71,6 +76,11 @@
   --grape: oklch(0.68 0.17 305);
   --sky: oklch(0.72 0.14 235);
   --blush: oklch(0.8 0.13 355);
+  --matcha: oklch(0.86 0.11 145);
+  --matcha-deep: oklch(0.52 0.12 150);
+  --strawberry: oklch(0.83 0.1 10);
+  --strawberry-deep: oklch(0.62 0.19 12);
+
   --ink: oklch(0.24 0.03 55);
   --ink-foreground: oklch(0.98 0.012 85);
   --destructive: oklch(0.577 0.245 27.325);
