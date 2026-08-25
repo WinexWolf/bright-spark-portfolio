@@ -1,4 +1,13 @@
-import { ArrowUpRight, CreditCard, ShieldCheck, Repeat, Bot, Boxes } from "lucide-react";
+import {
+  ArrowUpRight,
+  CreditCard,
+  ShieldCheck,
+  Repeat,
+  Bot,
+  Boxes,
+  Github,
+  Palette,
+} from "lucide-react";
 import { Reveal } from "./Reveal";
 
 const FINTECH = [
@@ -27,16 +36,32 @@ const FINTECH = [
 
 const OTHER = [
   {
+    icon: Github,
+    title: "Reweave",
+    line: "Open-source project that reweaves messy inputs into structured, usable output.",
+    href: "https://github.com/WinexWolf/reweave",
+    tint: "bg-matcha/50 text-matcha-deep",
+  },
+  {
     icon: Bot,
-    title: "Ingryd research agent",
+    title: "Research agent",
     line: "LLM pipeline that summarises dermatology papers into product rules.",
+    href: "https://winexwolf.github.io/anukriti-portfolio/#project",
     tint: "bg-mint/30 text-foreground",
   },
   {
     icon: Boxes,
     title: "Design-system starter",
     line: "Token-first component kit reused across my side projects.",
+    href: "https://winexwolf.github.io/anukriti-portfolio/#project",
     tint: "bg-citrus/40 text-foreground",
+  },
+  {
+    icon: Palette,
+    title: "Design work",
+    line: "Visual explorations, brand studies and interface concepts.",
+    href: "https://winexwolf.github.io/anukriti-portfolio/#designs",
+    tint: "bg-blush/30 text-foreground",
   },
 ];
 
@@ -85,23 +110,31 @@ export function CaseStudies() {
 
         <Reveal>
           <h3 className="mt-16 text-xs font-semibold tracking-[0.25em] text-muted-foreground uppercase">
-            Other tech projects
+            Other tech & design projects
           </h3>
         </Reveal>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {OTHER.map(({ icon: Icon, title, line, tint }, idx) => (
+          {OTHER.map(({ icon: Icon, title, line, tint, href }, idx) => (
             <Reveal key={title} delay={idx * 120}>
-              <article className="flex h-full items-start gap-5 rounded-3xl bg-secondary/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary hover:shadow-soft">
+              <a
+                href={href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group flex h-full items-start gap-5 rounded-3xl bg-secondary/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-secondary hover:shadow-soft"
+              >
                 <div
-                  className={`flex size-11 shrink-0 items-center justify-center rounded-2xl transition-transform duration-300 hover:rotate-6 ${tint}`}
+                  className={`flex size-11 shrink-0 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:rotate-6 ${tint}`}
                 >
                   <Icon className="size-5" strokeWidth={1.8} />
                 </div>
                 <div>
-                  <h4 className="font-semibold">{title}</h4>
+                  <h4 className="flex items-center gap-1.5 font-semibold">
+                    {title}
+                    <ArrowUpRight className="size-4 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </h4>
                   <p className="mt-2 text-sm text-muted-foreground">{line}</p>
                 </div>
-              </article>
+              </a>
             </Reveal>
           ))}
         </div>
