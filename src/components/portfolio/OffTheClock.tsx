@@ -1,17 +1,31 @@
 import { Reveal } from "./Reveal";
 
 const PINS = [
-  { id: "del", name: "Delhi", x: 60, y: 44, eat: "Karim's · kebabs" },
-  { id: "lon", name: "London", x: 34, y: 20, eat: "Dishoom · bacon naan" },
-  { id: "nyc", name: "New York", x: 10, y: 30, eat: "Superiority Burger" },
-  { id: "tok", name: "Tokyo", x: 80, y: 26, eat: "Fuglen · coffee" },
-  { id: "lis", name: "Lisbon", x: 24, y: 48, eat: "Time Out Market" },
+  { id: "nyc", name: "New York", x: 12, y: 27, eat: "Superiority Burger" },
+  { id: "sfo", name: "San Francisco", x: 5, y: 33, eat: "Tartine · morning bun" },
+  { id: "lon", name: "London", x: 33, y: 19, eat: "Dishoom · bacon naan" },
+  { id: "lis", name: "Lisbon", x: 26, y: 31, eat: "Time Out Market" },
+  { id: "par", name: "Paris", x: 37, y: 26, eat: "Du Pain et des Idées" },
+  { id: "ist", name: "Istanbul", x: 46, y: 30, eat: "Karaköy Güllüoğlu" },
+  { id: "dxb", name: "Dubai", x: 54, y: 38, eat: "Al Ustad Special Kabab" },
+  { id: "del", name: "Delhi", x: 62, y: 36, eat: "Karim's · kebabs" },
+  { id: "bom", name: "Mumbai", x: 60, y: 45, eat: "Britannia · berry pulao" },
+  { id: "sin", name: "Singapore", x: 74, y: 49, eat: "Tiong Bahru laksa" },
+  { id: "tok", name: "Tokyo", x: 85, y: 27, eat: "Fuglen · coffee" },
+  { id: "syd", name: "Sydney", x: 88, y: 52, eat: "Bourke St Bakery" },
 ];
 
 const ROUTES = [
+  ["sfo", "nyc"],
   ["nyc", "lon"],
-  ["lon", "del"],
-  ["del", "tok"],
+  ["lon", "par"],
+  ["par", "ist"],
+  ["ist", "dxb"],
+  ["dxb", "del"],
+  ["del", "bom"],
+  ["bom", "sin"],
+  ["sin", "tok"],
+  ["sin", "syd"],
   ["lis", "nyc"],
 ] as const;
 
@@ -39,6 +53,19 @@ const SWEAR_TINTS = [
   "bg-blush/25 text-foreground",
 ];
 
+const BOOKS = [
+  { title: "The Twentieth Wife", tint: "bg-primary/85 text-primary-foreground", h: 92, w: 34 },
+  { title: "The Palace of Illusions", tint: "bg-grape/80 text-primary-foreground", h: 100, w: 30 },
+  { title: "The Lady of the Rivers", tint: "bg-sky/80 text-primary-foreground", h: 88, w: 36 },
+  { title: "A Thousand Splendid Suns", tint: "bg-strawberry/90 text-foreground", h: 96, w: 32 },
+  { title: "Norse Mythology", tint: "bg-ink text-ink-foreground", h: 84, w: 28 },
+  { title: "Cleopatra VII · Royal Diaries", tint: "bg-citrus text-foreground", h: 98, w: 34 },
+  { title: "The Merchant of Venice", tint: "bg-matcha-deep/90 text-primary-foreground", h: 90, w: 26 },
+  { title: "Animal Farm", tint: "bg-blush/90 text-foreground", h: 82, w: 24 },
+  { title: "The Chronicles of Narnia", tint: "bg-mint text-foreground", h: 100, w: 38 },
+  { title: "The Hobbit", tint: "bg-matcha text-foreground", h: 94, w: 30 },
+];
+
 function pin(id: string) {
   return PINS.find((p) => p.id === id)!;
 }
@@ -64,7 +91,7 @@ export function OffTheClock() {
             Off the <span className="text-gradient">clock</span>
           </h2>
           <p className="mt-4 max-w-md text-lg text-muted-foreground">
-            Places I&apos;ve been, places next, and the things I keep coming back to.
+            Places I&apos;ve been, places next, and the shelf I keep going back to.
           </p>
         </Reveal>
 
@@ -78,7 +105,7 @@ export function OffTheClock() {
               viewBox="0 0 100 60"
               className="relative h-full w-full"
               role="img"
-              aria-label="Illustrated travel map with animated flight paths"
+              aria-label="Illustrated travel map with animated flight paths between cities"
             >
               <defs>
                 <pattern id="dots" width="2" height="2" patternUnits="userSpaceOnUse">
@@ -95,17 +122,16 @@ export function OffTheClock() {
               {ROUTES.map(([a, b]) => (
                 <g key={`${a}-${b}`}>
                   <path
-                    id={`path-${a}-${b}`}
                     d={arc(a, b)}
                     fill="none"
                     stroke="url(#route)"
-                    strokeWidth="0.45"
+                    strokeWidth="0.35"
                     strokeLinecap="round"
                     strokeDasharray="2 2"
                     className="animate-dash-fly"
                   />
-                  <circle r="0.7" className="fill-primary">
-                    <animateMotion dur="6s" repeatCount="indefinite" path={arc(a, b)} />
+                  <circle r="0.55" className="fill-primary">
+                    <animateMotion dur="7s" repeatCount="indefinite" path={arc(a, b)} />
                   </circle>
                 </g>
               ))}
@@ -115,22 +141,22 @@ export function OffTheClock() {
                   <circle
                     cx={p.x}
                     cy={p.y}
-                    r="1.1"
+                    r="0.9"
                     className="origin-center animate-pin-pulse fill-primary/40"
                     style={{ transformBox: "fill-box", transformOrigin: "center" }}
                   />
-                  <circle cx={p.x} cy={p.y} r="1.1" className="fill-primary" />
+                  <circle cx={p.x} cy={p.y} r="0.85" className="fill-primary" />
                   <text
-                    x={p.x + 2}
-                    y={p.y + 0.6}
-                    className="fill-foreground text-[2px] font-semibold"
+                    x={p.x + 1.5}
+                    y={p.y + 0.4}
+                    className="fill-foreground text-[1.7px] font-semibold"
                   >
                     {p.name}
                   </text>
                   <text
-                    x={p.x + 2}
-                    y={p.y + 3.2}
-                    className="fill-muted-foreground text-[1.6px]"
+                    x={p.x + 1.5}
+                    y={p.y + 2.4}
+                    className="fill-muted-foreground text-[1.4px]"
                   >
                     {p.eat}
                   </text>
@@ -176,6 +202,39 @@ export function OffTheClock() {
             </Reveal>
           </div>
         </div>
+
+        <Reveal delay={120} className="mt-8 overflow-hidden rounded-[2rem] border border-border bg-card p-8 shadow-soft">
+          <h3 className="text-xs font-semibold tracking-[0.25em] text-muted-foreground uppercase">
+            On the shelf
+          </h3>
+          <div className="mt-8 flex items-end justify-center gap-2 overflow-x-auto pb-1 sm:gap-3">
+            {BOOKS.map((b, i) => (
+              <div
+                key={b.title}
+                title={b.title}
+                style={{
+                  height: `${b.h * 2.4}px`,
+                  width: `${b.w * 1.35}px`,
+                  animationDelay: `${i * 240}ms`,
+                }}
+                className={`group relative flex shrink-0 origin-bottom animate-book-sway cursor-default items-center justify-center rounded-t-md border border-foreground/10 shadow-lift transition-all duration-300 hover:-translate-y-3 hover:rotate-1 ${b.tint}`}
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-y-2 left-1 w-px bg-current opacity-30"
+                />
+                <span
+                  aria-hidden
+                  className="absolute inset-y-2 right-1 w-px bg-current opacity-30"
+                />
+                <span className="[writing-mode:vertical-rl] rotate-180 px-1 text-center text-[0.7rem] leading-none font-semibold tracking-wide whitespace-nowrap">
+                  {b.title}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mx-auto mt-0 h-3 rounded-b-xl bg-gradient-to-r from-ink/80 via-ink to-ink/80 shadow-lift" />
+        </Reveal>
       </div>
     </section>
   );
