@@ -339,3 +339,28 @@
   }
 }
 
+
+/* ---- strawberry matcha + bookshelf layer ---- */
+
+@utility bg-gradient-matcha {
+  background-image: linear-gradient(
+    135deg,
+    var(--matcha) 0%,
+    oklch(0.95 0.04 140) 45%,
+    var(--strawberry) 100%
+  );
+}
+
+@keyframes book-sway {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-1.2deg) translateY(-3px);
+  }
+}
+
+@utility animate-book-sway {
+  animation: book-sway 6s ease-in-out infinite;
+}
