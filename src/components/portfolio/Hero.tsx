@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import portrait from "@/assets/portrait.jpg";
+import portrait from "@/assets/anukriti.jpg.asset.json";
 
 const ROLES = [
   "product-minded builder",
   "fintech software engineer",
-  "founder of Ingryd",
   "0-to-1 problem solver",
+  "systems thinker, user first",
 ];
 
 export function Hero() {
@@ -56,9 +56,12 @@ export function Hero() {
           </p>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            I ship payment-grade systems by day and build Ingryd — a skin health
-            intelligence app — by night. Now translating that engineering depth
-            into product ownership.
+            By day I move other people&apos;s money without losing a cent —
+            payment rails, ledgers, the unglamorous plumbing that has to be
+            right the first time. By night I build my own thing, from blank file
+            to something strangers actually use. Same rigour, wider remit: I
+            want to own the <span className="text-foreground font-semibold">why</span>,
+            not just the how.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -66,7 +69,7 @@ export function Hero() {
               href="#ingryd"
               className="group relative overflow-hidden rounded-full bg-gradient-vivid animate-gradient-pan px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"
             >
-              <span className="relative z-10">See Ingryd</span>
+              <span className="relative z-10">See what I&apos;m building</span>
               <span
                 aria-hidden
                 className="absolute inset-y-0 -left-1/3 w-1/3 animate-shimmer-x bg-card/40 blur-md"
@@ -84,17 +87,17 @@ export function Hero() {
         <div className="group relative animate-rise-in [animation-delay:150ms]">
           <div className="absolute -inset-3 -rotate-3 rounded-[2.5rem] bg-gradient-vivid animate-gradient-pan opacity-70 blur-[2px] transition-transform duration-500 group-hover:rotate-2" />
           <img
-            src={portrait}
+            src={portrait.url}
             alt="Portrait of Anukriti"
-            width={912}
-            height={1104}
-            className="relative aspect-4/5 w-full rounded-[2rem] object-cover shadow-lift transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.01]"
+            width={1024}
+            height={1365}
+            className="relative aspect-4/5 w-full rounded-[2rem] object-cover object-top shadow-lift transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-[1.01]"
           />
           <div className="absolute -bottom-6 -left-6 animate-float-y rounded-2xl border border-border bg-card px-5 py-4 shadow-soft">
             <p className="text-xs tracking-widest text-muted-foreground uppercase">
               Currently
             </p>
-            <p className="text-sm font-semibold">Fintech SWE · Building Ingryd</p>
+            <p className="text-sm font-semibold">Fintech SWE · Building solo</p>
           </div>
           <div
             aria-hidden
