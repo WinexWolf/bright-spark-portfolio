@@ -56,12 +56,13 @@ export function Hero() {
           </p>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            By day I move other people&apos;s money without losing a cent —
-            payment rails, ledgers, the unglamorous plumbing that has to be
-            right the first time. By night I build my own thing, from blank file
-            to something strangers actually use. Same rigour, wider remit: I
-            want to own the <span className="text-foreground font-semibold">why</span>,
-            not just the how.
+            By day I ship payment-grade systems — the kind of code that has
+            to be right the first time, every time. By night I&apos;m building
+            my own thing from scratch, learning what it takes to turn an idea
+            into something people actually reach for. Now I&apos;m translating
+            that engineering depth into{" "}
+            <span className="text-foreground font-semibold">product ownership</span>{" "}
+            — I want the why, not just the how.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
