@@ -46,6 +46,11 @@ const GROUPS = [
       "Tailwind CSS",
       "Jest",
       "Git",
+      "RAG pipelines",
+      "LLM prompting",
+      "Human-in-the-loop design",
+      "SQS",
+      "Socket.io",
     ],
   },
   {
